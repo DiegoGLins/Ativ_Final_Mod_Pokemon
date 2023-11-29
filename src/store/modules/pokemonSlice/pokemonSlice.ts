@@ -50,10 +50,9 @@ const pokemonSlice = createSlice({
     initialState,
     reducers: {
         addPokedex: (state, action: PayloadAction<Pokemon>) => {
-            const findPokemon = state.pokedex.find((pokemon) => pokemon.id === action.payload.id)
+            const findPokemon = state.data.find((pokemon) => pokemon.id === action.payload.id)
             if (findPokemon) {
-                state.data.push(findPokemon)
-                state.pokedex = state.data
+                state.pokedex.push(findPokemon)
                 return state
             }
         },
