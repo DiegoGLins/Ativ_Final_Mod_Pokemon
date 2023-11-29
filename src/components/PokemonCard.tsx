@@ -21,8 +21,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
             dispatch(removePokedex(data.id));
         } else {
             dispatch(addPokedex(data));
-            // dispatch(getPokemon(data.id))
-            console.log(data!)
+            // console.log(data!)
         }
     };
 
@@ -34,7 +33,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         <>
             <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokemon} />
             <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite' }}>
-                <Button onClick={() => handlePokedex(pokemon!)} sx={{ alignSelf: 'end', display: 'flex', paddingInlineStart: '15px', color: "#000" }}>
+                <Button onClick={() => handlePokedex(pokemon)} sx={{ alignSelf: 'end', display: 'flex', paddingInlineStart: '15px', color: "#000" }}>
                     <StarOutlineIcon className='favoritePokemon' />
                 </Button>
                 <CardMedia
