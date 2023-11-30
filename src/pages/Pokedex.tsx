@@ -24,13 +24,13 @@ const Pokedex: React.FC<PokedexProps> = () => {
             setDataLocal(pokedexRedux)
             setLoading(false)
         }
-    }, [pokedexRedux])
+    }, [pokedexRedux.length])
     console.log(pokedexRedux)
 
     return (
         <div>
             <Grid container spacing={2} marginBottom={'30px'}>
-                {loading ? <CircularProgress /> : !dataLocal ? <h1>{error}</h1> : pokedexRedux.map((pokemon) => (
+                {loading ? <CircularProgress /> : !dataLocal.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
                     <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
                         <PokedexCard pokedex={pokemon} />
                     </Grid>
