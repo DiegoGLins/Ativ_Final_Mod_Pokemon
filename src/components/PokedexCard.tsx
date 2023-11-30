@@ -20,7 +20,7 @@ const PokedexCard: React.FC<PokedexCardProps> = ({ pokedex }) => {
             <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokedex} />
             <Box>
                 <Grid container sx={{ width: '300px', height: '580px', alignItems: 'center', justifyContent: 'center' }}>
-                    <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite', width: '500px', alignItems: 'center', justifyContent: 'center', margin: '15px' }}>
+                    <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite', width: '500px', alignItems: 'center', justifyContent: 'center', margin: '10px' }}>
                         <CardMedia
                             component="img"
                             alt={pokedex!.name}

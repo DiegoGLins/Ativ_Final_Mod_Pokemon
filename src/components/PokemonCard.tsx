@@ -4,7 +4,6 @@ import { Card, CardContent, CardMedia, Typography, Button, Grid, Snackbar, Alert
 import { Pokemon } from '../types/PokemonType';
 import ModalDetail from './ModalDetail';
 import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addPokedex, removePokedex } from '../store/modules/pokemonSlice/pokemonSlice';
 
