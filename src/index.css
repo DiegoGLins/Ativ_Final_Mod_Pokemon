@@ -31,28 +31,35 @@ h1 {
   line-height: 1.1;
 }
 
+.styleAlert {
+  transform: translate(40%, -1600%);
+}
 
-.stylePokedex {
+
+.countPokedex {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  width: 200px;
-  height: 20px;
-  text-decoration: none;
   font-size: 38px;
   color: "#000"
 }
 
-.stylePokedex:active:focus {
-  color: "#000"
+.stylePokedex:hover {
+  transform: scale(1.05);
 }
 
-.stylePokedex:hover {
+
+.styleGoBack:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .favoritePokemon:hover {
   transform: scale(1.1);
   cursor: pointer;
   border: none;
+}
+
+.favoritePokemonActive {
+  color: "#ff26";
 }
 
 
