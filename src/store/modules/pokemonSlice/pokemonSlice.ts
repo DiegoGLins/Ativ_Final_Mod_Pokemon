@@ -11,17 +11,16 @@ interface PokemonState {
     currentPage: number
     itemsPerPage: number;
     totalPages: number;
-    pokedex: Pokemon[]
-
+    pokedex: number[]
 }
 
-const initialState: PokemonState = {
+export const initialState: PokemonState = {
     data: [],
     currentPage: 1,
     loading: false,
     itemsPerPage: 20,
     totalPages: 1,
-    pokedex: []
+    pokedex: [],
 };
 
 
@@ -45,19 +44,19 @@ export const getPokemon = createAsyncThunk('getPokemon', async (page: number, { 
 }
 );
 
+
 const pokemonSlice = createSlice({
     name: 'pokemon',
     initialState,
     reducers: {
-        addPokedex: (state, action: PayloadAction<Pokemon>) => {
-            const findPokemon = state.data.find((pokemon) => pokemon.id === action.payload.id)
-            if (findPokemon) {
-                state.pokedex.push(findPokemon)
-                return state
+        addPokedex: (state, action: PayloadAction<number>) => {
+            const pokemonId = action.payload;
+            if (!state.pokedex.includes(pokemonId)) {
+                state.pokedex.push(pokemonId);
             }
         },
         removePokedex: (state, action: PayloadAction<number>) => {
-            const index = state.pokedex.findIndex((pokemon) => pokemon.id === action.payload);
+            const index = state.pokedex.findIndex((pokemon) => pokemon === action.payload);
             state.pokedex.splice(index, 1)
             return state
         }
@@ -71,7 +70,7 @@ const pokemonSlice = createSlice({
             state.data = action.payload.data;
             state.totalPages = action.payload.totalPages
             state.currentPage = action.payload.page
-        });
+        })
     },
 });
 
