@@ -7,7 +7,7 @@ const persistConfig = {
     key: 'ativ-pokemon',
     varsion: 1,
     storage,
-    whitelist: ['pokemon']
+    whitelist: ['pokedex']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

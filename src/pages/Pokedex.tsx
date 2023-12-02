@@ -1,45 +1,41 @@
 
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/hooks";
-import { Pokemon } from "../types/PokemonType";
+import { Ability, PokemonSprites } from "../types/PokemonType";
 import { Grid, CircularProgress } from "@mui/material";
 import PokedexCard from "../components/PokedexCard";
-import apiPokemon from "../service/api.service";
 
+interface Pokedex {
+    id: number;
+    name: string;
+    height: number;
+    abilities: Ability[];
+    sprites: PokemonSprites
+}
 interface PokedexProps {
-    pokemon: Pokemon
+    pokemon: Pokedex[]
 }
 
 const Pokedex: React.FC<PokedexProps> = () => {
-    const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
-    const [dataLocal, setDataLocal] = useState<Pokemon[]>([])
-    const pokedexRedux = useAppSelector((state) => state.pokemon.pokedex)
+    const [dataLocal, setDataLocal] = useState<Pokedex[]>([])
+    const pokedexRedux = useAppSelector((state) => state.pokedex)
 
     useEffect(() => {
-        setLoading(true)
-        if (!pokedexRedux.length) {
+        if (!pokedexRedux.dataPokedex.length) {
             setError("Nenhum pokemon favoritado ainda")
-            setLoading(false)
         }
         else {
-            const fetchDataForPokedex = async () => {
-                const promises = pokedexRedux.map((pokemonId) => apiPokemon.get(`/${pokemonId}`));
-                const result = await Promise.all(promises);
-                const data = result.map((response) => response.data);
-                setDataLocal(data);
-                setLoading(false);
-            };
-            fetchDataForPokedex();
-            setLoading(false)
+            setDataLocal(pokedexRedux.dataPokedex)
         }
     }, [pokedexRedux])
-    console.log(pokedexRedux)
 
+    // console.log(dataLocal)
+    // console.log(pokedexRedux)
     return (
         <div>
             <Grid container spacing={2} marginBottom={'30px'}>
-                {loading ? <CircularProgress /> : !dataLocal.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
+                {pokedexRedux.loading ? <CircularProgress /> : !pokedexRedux.dataPokedex.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
                     <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
                         <PokedexCard pokemon={pokemon} />
                     </Grid>

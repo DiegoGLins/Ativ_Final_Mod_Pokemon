@@ -9,7 +9,7 @@ interface DefaultLayoutProps {
 }
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
-    const pokedexRedux = useAppSelector((state) => state.pokemon.pokedex)
+    const pokedexRedux = useAppSelector((state) => state.pokedex.dataPokedex)
 
     return (
         <React.Fragment>

@@ -1,7 +1,7 @@
 import { Card, CardMedia, CardContent, Typography, Modal, Box, IconButton, Grid } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import { Pokemon } from '../types/PokemonType';
+import { Ability, PokemonSprites } from '../types/PokemonType';
 
 const style = {
     position: 'absolute',
@@ -22,10 +22,18 @@ const style = {
 
 };
 
+interface objStorage {
+    id: number;
+    name: string;
+    height: number;
+    abilities: Ability[];
+    sprites: PokemonSprites
+}
+
 interface ModalDetailProps {
     isOpen: boolean
     actionCancel: () => void
-    pokemon: Pokemon
+    pokemon: objStorage
 }
 
 
@@ -65,10 +73,11 @@ const ModalDetail: React.FC<ModalDetailProps> = ({ pokemon, actionCancel, isOpen
                                 Height: {pokemon.height}
                             </Typography>
                             <Grid item key={pokemon.id} width={'200px'} justifyContent={'center'} alignItems={'center'}>
-                                <strong >Abilities :</strong>
-                                {pokemon.abilities.map((p) => (
-                                    <Typography>{p.ability.name}</Typography>
-                                ))}
+                                <strong>Abilities :
+                                    {pokemon.abilities.map((p) => (
+                                        <Typography>{p.ability.name}</Typography>
+                                    ))}
+                                </strong>
                             </Grid>
                         </Grid>
                     </CardContent>

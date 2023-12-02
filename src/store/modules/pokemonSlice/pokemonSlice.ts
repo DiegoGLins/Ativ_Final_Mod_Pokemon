@@ -2,16 +2,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiPokemon from '../../../service/api.service';
-import { Pokemon } from '../../../types/PokemonType';
+import { Ability, Pokemon, PokemonSprites } from '../../../types/PokemonType';
 import axios from 'axios';
 
+// interface Pokedex {
+//     id: number;
+//     name: string;
+//     height: number;
+//     abilities: Ability[];
+//     sprites: PokemonSprites
+// }
 interface PokemonState {
     data: Pokemon[];
     loading: boolean;
     currentPage: number
     itemsPerPage: number;
     totalPages: number;
-    pokedex: number[]
+    // pokedex: number[]
 }
 
 export const initialState: PokemonState = {
@@ -20,7 +27,7 @@ export const initialState: PokemonState = {
     loading: false,
     itemsPerPage: 20,
     totalPages: 1,
-    pokedex: [],
+    // pokedex: [],
 };
 
 
@@ -49,17 +56,22 @@ const pokemonSlice = createSlice({
     name: 'pokemon',
     initialState,
     reducers: {
-        addPokedex: (state, action: PayloadAction<number>) => {
-            const pokemonId = action.payload;
-            if (!state.pokedex.includes(pokemonId)) {
-                state.pokedex.push(pokemonId);
-            }
-        },
-        removePokedex: (state, action: PayloadAction<number>) => {
-            const index = state.pokedex.findIndex((pokemon) => pokemon === action.payload);
-            state.pokedex.splice(index, 1)
+        pokemons: (state, action) => {
+            state.data = action.payload
             return state
         }
+        // addPokedex: (state, action: PayloadAction<number>) => {
+        //     const findpokemon = action.payload
+        //     const data = state.pokedex.find(item => item === findpokemon)
+        //     if (!data) {
+        //         state.pokedex.push(findpokemon);
+        //     }
+        // },
+        // removePokedex: (state, action: PayloadAction<number>) => {
+        //     const index = state.pokedex.findIndex((pokemon) => pokemon === action.payload);
+        //     state.pokedex.splice(index, 1)
+        //     return state
+        // }
     },
     extraReducers: (builder) => {
         builder.addCase(getPokemon.pending, (state) => {
@@ -75,5 +87,5 @@ const pokemonSlice = createSlice({
 });
 
 
-export const { addPokedex, removePokedex } = pokemonSlice.actions;
+export const { pokemons } = pokemonSlice.actions;
 export default pokemonSlice.reducer

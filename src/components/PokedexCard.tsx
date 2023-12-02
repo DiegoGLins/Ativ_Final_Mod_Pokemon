@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardMedia, Typography, Grid, Box, Button } from '@mui/material';
-import { Pokemon } from '../types/PokemonType';
+import { Ability, PokemonSprites } from '../types/PokemonType';
 import ModalDetail from './ModalDetail';
 // import apiPokemon from '../service/api.service';
 
+interface Pokedex {
+    id: number;
+    name: string;
+    height: number;
+    abilities: Ability[];
+    sprites: PokemonSprites
+}
 interface PokedexCardProps {
-    pokemon: Pokemon
-    pokedexId?: number
+    pokemon: Pokedex
 }
 
 const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {

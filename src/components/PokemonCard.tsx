@@ -1,14 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, Grid, Snackbar, Alert, Box } from '@mui/material';
-import { Pokemon } from '../types/PokemonType';
+import { Ability, Pokemon, PokemonSprites } from '../types/PokemonType';
 import ModalDetail from './ModalDetail';
 import StarIcon from '@mui/icons-material/Star';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { addPokedex, removePokedex, } from '../store/modules/pokemonSlice/pokemonSlice';
+import { favorite } from '../store/modules/pokedexSlice/pokedexSlice';
+// import { addPokedex, removePokedex } from '../store/modules/pokedexSlice/pokedexSlice';
+// import { addPokedex, removePokedex, } from '../store/modules/pokemonSlice/pokemonSlice';
+
+interface Pokedex {
+    id: number;
+    name: string;
+    height: number;
+    abilities: Ability[];
+    sprites: PokemonSprites
+}
 
 interface PokemonCardProps {
-    pokemon: Pokemon;
+    pokemon: Pokedex;
     pokedexId?: number
     index?: number
 }
@@ -19,37 +30,36 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
     const [openAlert, setOpenAlert] = useState<boolean>(false)
     const [alertMessage, setAlertMessage] = useState<string>('')
     const [addFavorite, setAddFavorite] = useState<boolean>(false)
-    const isPokemonInPokedex = useAppSelector((state) => state.pokemon.pokedex.some(item => item === pokemon?.id))
+    const isPokemonInPokedex = useAppSelector((state) => state.pokedex.dataPokedex.find(item => item.id === pokemon.id))
 
 
-    const handlePokedex = (data: Pokemon) => {
+    const handlePokedex = () => {
         if (isPokemonInPokedex) {
             setAddFavorite(false)
             setAlertMessage("Pokemon removido da pokedex com sucesso")
             setOpenAlert(true)
-            setTimeout(() => {
-                dispatch(removePokedex(data.id));
-            }, 500)
+            dispatch(favorite(pokemon));
+
         } else {
             setAddFavorite(true)
             setAlertMessage("Pokemon adicionado na pokedex com sucesso")
             setOpenAlert(true)
-            setTimeout(() => {
-                dispatch(addPokedex(data.id));
-            }, 500)
+            dispatch(favorite(pokemon));
+
         }
     };
 
     function handleClose() {
         setOpenModal(false)
     }
-    console.log(isPokemonInPokedex)
+
+
     return (
         <>
-            <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokemon!} />
+            <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokemon} />
             <Box >
                 <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite' }}>
-                    <Button onClick={() => handlePokedex(pokemon!)} sx={{ color: `${addFavorite ? '#eac625' : '#ddd8dd'}`, alignSelf: 'end', display: 'flex', paddingInlineStart: '15px' }}>
+                    <Button onClick={handlePokedex} sx={{ color: `${addFavorite ? '#eac625' : '#ddd8dd'}`, alignSelf: 'end', display: 'flex', paddingInlineStart: '15px' }}>
                         <StarIcon sx={{ padding: '3px', borderRadius: '100%', width: '21px', height: '21px', backgroundColor: `${addFavorite ? "#000" : "#d58318"}` }} className='favoritePokemon' />
                     </Button>
                     <CardMedia sx={{ borderRadius: '20px' }}
