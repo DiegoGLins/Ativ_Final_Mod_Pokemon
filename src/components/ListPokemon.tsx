@@ -52,7 +52,7 @@ const ListPokemon: React.FC = () => {
             <Grid container spacing={2} marginBottom={'30px'}>
                 {data.map((pokemon) => (
                     <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
-                        <PokemonCard index={pokemon.id} pokemon={pokemon} />
+                        <PokemonCard pokemon={pokemon} />
                     </Grid>
                 ))}
             </Grid>

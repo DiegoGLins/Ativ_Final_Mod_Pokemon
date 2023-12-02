@@ -20,8 +20,6 @@ interface Pokedex {
 
 interface PokemonCardProps {
     pokemon: Pokedex;
-    pokedexId?: number
-    index?: number
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
@@ -45,7 +43,6 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
             setAlertMessage("Pokemon adicionado na pokedex com sucesso")
             setOpenAlert(true)
             dispatch(favorite(pokemon));
-
         }
     };
 
@@ -57,16 +54,16 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
     return (
         <>
             <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokemon} />
-            <Box >
-                <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite' }}>
+            <Box sx={{ display: 'flex', width: '300px', height: '500px' }}>
+                <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite', width: '300px', height: '490px', margin: '12px' }}>
                     <Button onClick={handlePokedex} sx={{ color: `${addFavorite ? '#eac625' : '#ddd8dd'}`, alignSelf: 'end', display: 'flex', paddingInlineStart: '15px' }}>
                         <StarIcon sx={{ padding: '3px', borderRadius: '100%', width: '21px', height: '21px', backgroundColor: `${addFavorite ? "#000" : "#d58318"}` }} className='favoritePokemon' />
                     </Button>
                     <CardMedia sx={{ borderRadius: '20px' }}
                         component="img"
                         alt={pokemon?.name}
-                        height="220"
-                        width='80'
+                        height="270"
+                        width='250'
                         image={pokemon?.sprites.front_default} />
                     <CardContent>
                         <Typography variant="body1" color='primary.main'>

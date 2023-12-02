@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/hooks";
 import { Ability, PokemonSprites } from "../types/PokemonType";
 import { Grid, CircularProgress } from "@mui/material";
-import PokedexCard from "../components/PokedexCard";
+import PokemonCard from "../components/PokemonCard";
 
 interface Pokedex {
     id: number;
@@ -30,14 +30,12 @@ const Pokedex: React.FC<PokedexProps> = () => {
         }
     }, [pokedexRedux])
 
-    // console.log(dataLocal)
-    // console.log(pokedexRedux)
     return (
         <div>
             <Grid container spacing={2} marginBottom={'30px'}>
                 {pokedexRedux.loading ? <CircularProgress /> : !pokedexRedux.dataPokedex.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
                     <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
-                        <PokedexCard pokemon={pokemon} />
+                        <PokemonCard pokemon={pokemon} />
                     </Grid>
                 ))}
             </Grid>

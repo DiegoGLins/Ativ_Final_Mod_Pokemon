@@ -7,15 +7,7 @@ export interface Pokemon {
     order: number;
     weight: number;
     abilities: Ability[];
-    // forms: NamedAPIResource[];
-    // game_indices: VersionGameIndex[];
-    // held_items: PokemonHeldItem[];
-    // location_area_encounters: string;
-    // moves: PokemonMove[];
     sprites: PokemonSprites;
-    // species: NamedAPIResource;
-    // stats: PokemonStat[];
-    // types: PokemonType[];
 }
 
 export interface Ability {
@@ -25,33 +17,6 @@ export interface Ability {
         name: string
     }
 }
-
-
-// interface VersionGameIndex {
-//     game_index: number;
-//     version: NamedAPIResource;
-// }
-
-// interface PokemonHeldItem {
-//     item: NamedAPIResource;
-//     version_details: PokemonHeldItemVersion[];
-// }
-
-// interface PokemonHeldItemVersion {
-//     version: NamedAPIResource;
-//     rarity: number;
-// }
-
-// interface PokemonMove {
-//     move: NamedAPIResource;
-//     version_group_details: PokemonMoveVersion[];
-// }
-
-// interface PokemonMoveVersion {
-//     move_learn_method: NamedAPIResource;
-//     version_group: NamedAPIResource;
-//     level_learned_at: number;
-// }
 
 export interface PokemonSprites {
     front_default: string;
@@ -64,14 +29,4 @@ export interface PokemonSprites {
     back_shiny_female: string | null;
 }
 
-// interface PokemonStat {
-//     stat: NamedAPIResource;
-//     effort: number;
-//     base_stat: number;
-// }
-
-// interface PokemonType {
-//     slot: number;
-//     type: NamedAPIResource;
-// }
 
