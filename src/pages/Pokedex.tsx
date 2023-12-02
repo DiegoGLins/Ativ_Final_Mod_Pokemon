@@ -32,9 +32,9 @@ const Pokedex: React.FC<PokedexProps> = () => {
 
     return (
         <div>
-            <Grid container spacing={2} marginBottom={'30px'}>
+            <Grid container spacing={2} >
                 {pokedexRedux.loading ? <CircularProgress /> : !pokedexRedux.dataPokedex.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
-                    <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
+                    <Grid sx={{ margin: '15px' }} item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
                         <PokemonCard pokemon={pokemon} />
                     </Grid>
                 ))}

@@ -10,6 +10,7 @@ interface Pokedex {
     height: number;
     abilities: Ability[];
     sprites: PokemonSprites
+
 }
 interface PokemonState {
     dataPokedex: Pokedex[];
@@ -17,7 +18,6 @@ interface PokemonState {
     currentPage: number
     itemsPerPage: number;
     totalPages: number;
-    // pokedex: number[]
 }
 
 export const initialState: PokemonState = {
@@ -26,7 +26,6 @@ export const initialState: PokemonState = {
     loading: false,
     itemsPerPage: 20,
     totalPages: 1,
-    // pokedex: [],
 };
 
 
@@ -47,38 +46,17 @@ const pokedexSlice = createSlice({
     name: 'pokedex',
     initialState,
     reducers: {
-        // addPokedex: (state, action: PayloadAction<number>) => {
-        //     const findpokemon = action.payload
-        //     const data = state.dataPokedex.find(item => item.id === findpokemon)
-        //     if (!data) {
-        //         state.pokedex.push(findpokemon);
-        //     }
-        // },
         favorite: (state, action: PayloadAction<Pokedex>) => {
             const findpokemon = action.payload
             const data = state.dataPokedex.find(item => item.id === findpokemon.id)
             if (!data) {
-                state.dataPokedex.push(findpokemon);
+                state.dataPokedex.push(findpokemon)
                 return state
             }
             const index = state.dataPokedex.findIndex((pokemon) => pokemon.id === action.payload.id);
             state.dataPokedex.splice(index, 1)
             return state
         },
-        // removePokedex: (state, action: PayloadAction<number>) => {
-        //     const index = state.dataPokedex.findIndex((pokemon) => pokemon.id === action.payload);
-        //     state.dataPokedex.splice(index, 1)
-        //     return state
-        // }
-
-        // removePokedex: (state, action: PayloadAction<number>) => {
-        //     const dataFavorite = state.dataPokedex.some((pokemon) => pokemon.id === action.payload)
-        //     if (dataFavorite) {
-        //         const index = state.dataPokedex.findIndex((pokemon) => pokemon.id === action.payload)
-        //         state.pokedex.splice(index, 1)
-        //     }
-        //     return state
-        // }
     },
     extraReducers: (builder) => {
         builder.addCase(getPokedex.pending, (state) => {
