@@ -30,7 +30,7 @@ const ListPokemon: React.FC = () => {
 
 
     return (
-        <div>
+        <div >
             <Stack spacing={2} sx={{ display: 'flex', margin: '10px 0px 20px 0px', alignItems: 'center' }}>
                 <Pagination
                     count={totalPages}

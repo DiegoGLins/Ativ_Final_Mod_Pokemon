@@ -44,12 +44,11 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         setOpenModal(false)
     }
 
-    console.log(isPokemonInPokedex)
     return (
         <>
             <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokemon} />
-            <Box sx={{ display: 'flex', width: '300px', height: '500px', justifyContent: 'space-between' }}>
-                <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite', width: '300px', height: '490px', margin: '12px' }}>
+            <Box sx={{ display: 'flex', width: '300px', height: '500px', margin: '15px', }}>
+                <Card sx={{ paddingTop: '15px', backgroundColor: 'antiquewhite', width: '300px', height: '490px' }}>
                     <Button onClick={handlePokedex} sx={{ color: `${isPokemonInPokedex ? '#eac625' : '#ddd8dd'}`, alignSelf: 'end', display: 'flex', paddingInlineStart: '15px' }}>
                         <StarIcon sx={{ padding: '3px', borderRadius: '100%', width: '21px', height: '21px', backgroundColor: `${isPokemonInPokedex ? "#000" : "#d58318"}` }} className='favoritePokemon' />
                     </Button>

@@ -3,7 +3,7 @@ import ListPokemon from '../components/ListPokemon';
 
 const Home: React.FC = () => {
     return (
-        <React.Fragment>
+        <React.Fragment >
             <ListPokemon />
         </React.Fragment>
     );
