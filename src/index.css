@@ -41,7 +41,16 @@ h1 {
 
 .countPokedex {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 38px;
+  font-size: 36px;
+  color: "#000";
+  position: relative;
+  right: 148px;
+  bottom: 55px
+}
+
+.countSinglePokedex {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 36px;
   color: "#000";
   position: relative;
   right: 138px;

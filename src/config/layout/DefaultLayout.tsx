@@ -14,7 +14,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
 
     return (
         <React.Fragment>
-            <Grid container item xs={12} md={8} sm={6} sx={{ flexGrow: 1, marginBottom: '150px', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <Grid container item xs={6} md={12} lg={12} sm={6} sx={{ flexGrow: 1, marginBottom: '170px', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
                 <AppBar position="fixed" >
                     <Toolbar sx={{ gap: "2px", height: '130px' }}>
                         <img style={{ padding: '12px 40px 0px 60px', height: '75px', width: '80px' }} alt="Remy Sharp" src={pokeballPikachu} />
@@ -24,13 +24,13 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
                         <a className='stylePokedex' href='/pokedex' style={{ textDecoration: 'none' }} >
                             <strong style={{ color: '#fff', padding: '0px 10px 0px 0px', fontSize: '45px', position: 'relative', bottom: '50px' }}>POKEDEX</strong>
                             <img src={pokedex} style={{ height: '130px', width: '170px', zIndex: '-2px', paddingTop: '32px' }} />
-                            <strong style={{ color: '#fff' }} className='countPokedex'>{pokedexRedux.length}</strong>
+                            <strong style={{ color: '#fff' }} className={pokedexRedux.length > 9 ? 'countPokedex' : 'countSinglePokedex'}>{pokedexRedux.length}</strong>
                         </a>
                         <img src={pokemonTitle} style={{ height: '120px', width: '340px', paddingLeft: '75px' }} alt='pokemon-title'></img>
                     </Toolbar>
                 </AppBar>
             </Grid>
-            <Grid container>
+            <Grid item xs={12} lg={12} md={12}>
                 {children}
             </Grid>
         </React.Fragment>
