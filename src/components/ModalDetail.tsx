@@ -64,16 +64,16 @@ const ModalDetail: React.FC<ModalDetailProps> = ({ pokemon, actionCancel, isOpen
                     <CardContent style={{ display: 'flex', width: '180px', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                         <Grid container style={{ display: 'flex', width: '480px', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', paddingRight: '50px' }}>
                             <Typography variant="body1" width={'100px'} color='primary.main'>
-                                {pokemon.name}
+                                <strong>{pokemon.name.toUpperCase()}</strong>
                             </Typography>
-                            <Typography variant="body1" width={'100px'} color="text.secondary">
+                            <Typography variant="body1" width={'100px'} color="primary.dark">
                                 ID: {pokemon.id}
                             </Typography>
                             <Typography variant="body1" color="secondary.contrastText">
                                 Height: {pokemon.height}
                             </Typography>
                             <Grid item key={pokemon.id} width={'200px'} justifyContent={'center'} alignItems={'center'}>
-                                <strong>Abilities :
+                                <strong>Abilities:
                                     {pokemon.abilities.map((p) => (
                                         <Typography>{p.ability.name}</Typography>
                                     ))}
