@@ -6,6 +6,7 @@ export interface Pokemon {
     is_default: boolean;
     order: number;
     weight: number;
+    types: TypePokemon[]
     abilities: Ability[];
     sprites: PokemonSprites;
 }
@@ -15,6 +16,14 @@ export interface Ability {
     slot: number;
     ability: {
         name: string
+    }
+}
+
+export interface TypePokemon {
+    slot: number,
+    type: {
+        name: string,
+        url: string
     }
 }
 
