@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/hooks";
-import { Ability, PokemonSprites } from "../types/PokemonType";
+import { Ability, PokemonSprites, TypePokemon } from "../types/PokemonType";
 import { Grid, CircularProgress } from "@mui/material";
 import PokemonCard from "../components/PokemonCard";
 
@@ -10,6 +10,7 @@ interface Pokedex {
     name: string;
     height: number;
     abilities: Ability[];
+    types: TypePokemon[]
     sprites: PokemonSprites
 }
 interface PokedexProps {
