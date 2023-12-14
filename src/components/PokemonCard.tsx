@@ -45,7 +45,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         setOpenModal(false)
     }
 
-    const cardColors: any = colorType[pokemon.types[0].type.name] ? colorType[pokemon.types[0].type.name] : colorType.normal
+    const cardColors: any = colorType[pokemon?.types[0].type.name] ? colorType[pokemon?.types[0].type.name] : colorType.normal
     console.log(colorType)
     return (
         <>
