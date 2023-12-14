@@ -44,9 +44,10 @@ h1 {
   font-size: 36px;
   color: "#000";
   position: relative;
-  right: 148px;
-  bottom: 55px
+  right: 150px;
+  top: 13px
 }
+
 
 .countSinglePokedex {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -54,7 +55,7 @@ h1 {
   color: "#000";
   position: relative;
   right: 138px;
-  bottom: 55px
+  top: 13px
 }
 
 .stylePokedex:hover {
@@ -79,6 +80,12 @@ h1 {
 
 .hideTitlePokemon {
   @media(max-width: 855px) {
+    display: none;
+  }
+}
+
+.hideTitlePokedex {
+  @media(max-width: 655px) {
     display: none;
   }
 }

@@ -46,7 +46,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
     }
 
     const cardColors: any = colorType[pokemon?.types[0].type.name] ? colorType[pokemon?.types[0].type.name] : colorType.normal
-    console.log(colorType)
+
     return (
         <>
             <ModalDetail isOpen={openModal} actionCancel={() => handleClose()} pokemon={pokemon} />

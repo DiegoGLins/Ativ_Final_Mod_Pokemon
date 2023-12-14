@@ -4,6 +4,7 @@ import { useAppSelector } from "../store/hooks";
 import { Ability, PokemonSprites, TypePokemon } from "../types/PokemonType";
 import { Grid, CircularProgress } from "@mui/material";
 import PokemonCard from "../components/PokemonCard";
+import NavBar from "../components/NavBar";
 
 export interface Pokedex {
     id: number;
@@ -33,6 +34,7 @@ const Pokedex: React.FC<PokedexProps> = () => {
 
     return (
         <div>
+            <NavBar />
             <Grid container spacing={2} >
                 {pokedexRedux.loading ? <CircularProgress /> : !pokedexRedux.dataPokedex.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
                     <Grid sx={{ margin: '15px' }} item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
