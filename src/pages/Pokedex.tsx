@@ -5,7 +5,7 @@ import { Ability, PokemonSprites, TypePokemon } from "../types/PokemonType";
 import { Grid, CircularProgress } from "@mui/material";
 import PokemonCard from "../components/PokemonCard";
 
-interface Pokedex {
+export interface Pokedex {
     id: number;
     name: string;
     height: number;
@@ -14,7 +14,7 @@ interface Pokedex {
     sprites: PokemonSprites
 }
 interface PokedexProps {
-    pokemon: Pokedex[]
+    pokemon?: Pokedex[]
 }
 
 const Pokedex: React.FC<PokedexProps> = () => {
