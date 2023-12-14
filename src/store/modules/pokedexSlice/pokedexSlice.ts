@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiPokemon from '../../../service/api.service';
-import { Ability, PokemonSprites } from '../../../types/PokemonType';
+import { Ability, PokemonSprites, TypePokemon } from '../../../types/PokemonType';
 
 interface Pokedex {
     id: number;
@@ -10,7 +10,7 @@ interface Pokedex {
     height: number;
     abilities: Ability[];
     sprites: PokemonSprites
-
+    types: TypePokemon[]
 }
 interface PokemonState {
     dataPokedex: Pokedex[];
