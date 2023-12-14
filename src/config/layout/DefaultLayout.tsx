@@ -26,7 +26,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
                             <img src={pokedex} style={{ height: '130px', width: '170px', zIndex: '-2px', paddingTop: '32px' }} />
                             <strong style={{ color: '#fff' }} className={pokedexRedux.length > 9 ? 'countPokedex' : 'countSinglePokedex'}>{pokedexRedux.length}</strong>
                         </a>
-                        <img src={pokemonTitle} style={{ height: '120px', width: '340px', paddingLeft: '75px' }} alt='pokemon-title'></img>
+                        <img className='hideTitlePokemon' src={pokemonTitle} style={{ height: '120px', width: '340px', paddingLeft: '75px' }} alt='pokemon-title'></img>
                     </Toolbar>
                 </AppBar>
             </Grid>
