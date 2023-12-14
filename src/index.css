@@ -77,6 +77,11 @@ h1 {
   color: "#ff26";
 }
 
+.hideTitlePokemon {
+  @media(max-width: 855px) {
+    display: none;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {
