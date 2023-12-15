@@ -6,7 +6,7 @@ Você pode acessar a aplicação através desse link: https://ativ-final-mod-pok
 <div align='center' style="display: flex; justify-content: space-between">
   <p float='center'>
     <img src="https://github.com/DiegoGLins/Ativ_Final_Mod_Pokemon/assets/107010634/72a2a0a9-72a0-490f-b3bb-9376d6464686" alt="Mobile" width="30%">
-    <img src="https://github.com/DiegoGLins/Ativ_Final_Mod_Pokemon/assets/107010634/2ba928ad-2bd4-46d8-9fd2-7c01058f599a" alt="Desktop" width="30%"> 
+    <img src="https://github.com/DiegoGLins/Ativ_Final_Mod_Pokemon/assets/107010634/2ba928ad-2bd4-46d8-9fd2-7c01058f599a" alt="Desktop" width="30%" heigth='80%'> 
     <img src='https://github.com/DiegoGLins/Ativ_Final_Mod_Pokemon/assets/107010634/6e8557d3-c189-4a23-afa1-260a0f3f7628' width='30%/>
   </p>
 </div>
