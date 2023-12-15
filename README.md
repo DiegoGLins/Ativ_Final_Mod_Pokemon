@@ -1,5 +1,5 @@
 Essa é uma aplicação para listar todos os pokemons da Api de pokemons, sendo 20 pokemons listados por página.
-Há uma página pokedex onde fica armazenado os pokemons favoritados pelo usuário. Ao clicar no botão detalhe de cada card é mostrado mais infromações sobre as habilidades do pokemon clicado
+Há uma página pokedex onde fica armazenado os pokemons favoritados pelo usuário. Ao clicar no botão detalhe de cada card é mostrado mais infromações sobre as habilidades do pokemon clicado.
 A aplicação é responsiva podendo ser visualizada em diversos dispositivos
 Você pode acessar a aplicação através desse link: https://ativ-final-mod-pokemon.vercel.app/
  <br/>
