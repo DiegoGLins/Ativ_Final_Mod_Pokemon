@@ -3,9 +3,9 @@ Há uma página pokedex onde fica armazenado os pokemons favoritados pelo usuár
 A aplicação é responsiva podendo ser visualizada em diversos dispositivos
 Você pode acessar a aplicação através desse link: https://ativ-final-mod-pokemon.vercel.app/
 
-<div float='left'>
+<div align='center'>
   <br/>
-  <p>
+  <p float=left>
      Desktop
       <img src="https://github.com/DiegoGLins/Ativ_Final_Mod_Pokemon/assets/107010634/2ba928ad-2bd4-46d8-9fd2-7c01058f599a" alt="Desktop" width="45%">
   </p>
