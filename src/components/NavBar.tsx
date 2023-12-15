@@ -21,7 +21,7 @@ const NavBar = () => {
     const pokedexRedux = useAppSelector((state) => state.pokedex.dataPokedex)
 
     return (
-        <Grid container item xs={6} md={12} lg={12} sm={6} sx={{ flexGrow: 1, marginBottom: '170px', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid container item xs={12} sm={6} md={4} lg={3} sx={{ flexGrow: 1, marginBottom: '170px', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
             <AppBar position="fixed" >
                 <Toolbar sx={{ gap: "2px", height: '130px' }}>
                     <img style={{ padding: '12px 40px 0px 60px', height: '75px', width: '80px' }} alt="Remy Sharp" src={pokeballPikachu} />

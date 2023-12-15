@@ -30,8 +30,8 @@ const ListPokemon: React.FC = () => {
 
 
     return (
-        <div >
-            <Stack spacing={2} sx={{ display: 'flex', margin: '10px 0px 20px 0px', alignItems: 'center' }}>
+        <div>
+            <Stack spacing={2} sx={{ display: 'flex', margin: '10px 0px 20px 15px', alignItems: 'center' }}>
                 <Pagination
                     count={totalPages}
                     page={currentPage}
@@ -51,7 +51,7 @@ const ListPokemon: React.FC = () => {
             </Stack>
             <Grid container spacing={2} marginBottom={'30px'} >
                 {data.map((pokemon) => (
-                    <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3} sx={{ display: 'inline-grid', justifyContent: 'center' }} >
                         <PokemonCard pokemon={pokemon} />
                     </Grid>
                 ))}
