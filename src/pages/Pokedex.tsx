@@ -37,7 +37,7 @@ const Pokedex: React.FC<PokedexProps> = () => {
             <NavBar />
             <Grid container spacing={2} >
                 {pokedexRedux.loading ? <CircularProgress /> : !pokedexRedux.dataPokedex.length ? <h1>{error}</h1> : dataLocal.map((pokemon) => (
-                    <Grid sx={{ margin: '15px' }} item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
+                    <Grid item key={pokemon.id} xs={12} sm={5} md={4} lg={3} sx={{ margin: '15px', display: 'inline-grid', justifyContent: 'center' }}>
                         <PokemonCard pokemon={pokemon} />
                     </Grid>
                 ))}
