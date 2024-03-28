@@ -1,7 +1,7 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import pokedex from '/pokedex.png'
 import pokemonTitle from '/pokemon-title.png'
-import { useNavigate, } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../store/hooks';
 import { AppBar, Button, Grid, Toolbar } from '@mui/material'
 import pokeballPikachu from '/pokeball-pikachu.png'
