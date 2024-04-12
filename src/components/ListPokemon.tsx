@@ -19,6 +19,7 @@ const ListPokemon: React.FC = () => {
     }, [dispatch, pokemonRedux.currentPage]);
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        event.preventDefault()
         if (value !== pokemonRedux.currentPage) {
             dispatch(getPokemon(value))
         }
